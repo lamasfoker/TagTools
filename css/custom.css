@@ -1,0 +1,35 @@
+::-webkit-scrollbar {
+	display:none;
+}
+
+#selected-table tr td:nth-child(2),
+#selected-table tr td:nth-child(3),
+#selected-table tr td:nth-child(4) {
+    display: none;
+}
+
+#selected-table tr:hover td:nth-child(2) {
+    display: block;
+}
+
+#selected-table tr td:nth-child(2) {
+    cursor: pointer;
+}
+
+#file-table tr td:nth-child(1),
+#file-table tr th:nth-child(1) {
+    display: none;
+}
+
+#item-selected {
+	font-weight: bold;
+}
+
+#file-table tr,
+#tag-table tr {
+    cursor: pointer;
+}
+
+#form-wrapper {
+	display: none;
+}
