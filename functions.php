@@ -42,7 +42,7 @@ if (isset($_POST["upload_btn"]))
             } else {
                 echo "<script type=\"text/javascript\">
                         alert(\"CSV File has been successfully Imported.\");
-                        window.location = \"Index.php\"
+                        window.location = \"index.php\"
                       </script>";
             }
         }

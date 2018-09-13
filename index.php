@@ -37,15 +37,15 @@ if (isset($_GET['logout'])) {
     <link rel="icon" href="icon/logo-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon-precomposed" href="icon/logo-152x152.png">
     <!-- CORE CSS-->
-    <link href="css/materialize.css" type="text/css" rel="stylesheet">
-    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="vendor/view/css/materialize.css" type="text/css" rel="stylesheet">
+    <link href="vendor/view/css/style.css" type="text/css" rel="stylesheet">
     <!-- Custom CSS-->
-    <link href="css/custom.css" type="text/css" rel="stylesheet">
+    <link href="view/css/custom.css" type="text/css" rel="stylesheet">
     <!-- CSS style Horizontal Nav-->
-    <link href="css/style-horizontal.css" type="text/css" rel="stylesheet">
+    <link href="vendor/view/css/style-horizontal.css" type="text/css" rel="stylesheet">
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="css/prism.css" type="text/css" rel="stylesheet">
-    <link href="css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
+    <link href="vendor/view/css/prism.css" type="text/css" rel="stylesheet">
+    <link href="vendor/view/css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
     <!-- GOOGLE ICON -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
@@ -203,22 +203,22 @@ if (isset($_GET['logout'])) {
     <!-- END FOOTER -->
     <!-- Scripts -->
     <!-- jQuery Library -->
-    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="vendor/view/js/jquery-3.3.1.js"></script>
     <!--materialize js-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="vendor/view/js/materialize.min.js"></script>
     <!--prism
     <script type="text/javascript" src="js/prism.js"></script>-->
     <!--scrollbar -->
-    <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
+    <script type="text/javascript" src="vendor/view/js/perfect-scrollbar.min.js"></script>
     <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="vendor/view/js/plugins.js"></script>
     <!--css-transition.js - Page specific JS
     <script type="text/javascript" src="js/css-transition.js"></script>-->
     <!--custom-script.js - Add your own theme custom JS-->
-    <script type="text/javascript" src="js/custom-script.js"></script>
+    <script type="text/javascript" src="view/js/custom-script.js"></script>
     <!-- search -->
-    <script type="text/javascript" src="js/search.js"></script>
+    <script type="text/javascript" src="view/js/search.js"></script>
     <!-- pagination -->
-    <script type="text/javascript" src="js/pagination.js"></script>
+    <script type="text/javascript" src="view/js/pagination.js"></script>
   </body>
 </html>

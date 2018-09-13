@@ -19,15 +19,15 @@ if (isset($_SESSION['email'])) {
     <link rel="icon" href="icon/logo-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon-precomposed" href="icon/logo-152x152.png">
     <!-- CORE CSS-->
-    <link href="css/materialize.css" type="text/css" rel="stylesheet">
-    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="vendor/view/css/materialize.css" type="text/css" rel="stylesheet">
+    <link href="vendor/view/css/style.css" type="text/css" rel="stylesheet">
     <!-- Custom CSS-->
-    <link href="css/custom.css" type="text/css" rel="stylesheet">
+    <link href="view/css/custom.css" type="text/css" rel="stylesheet">
     <!-- CSS style Horizontal Nav-->
-    <link href="css/style-horizontal.css" type="text/css" rel="stylesheet">
+    <link href="vendor/view/css/style-horizontal.css" type="text/css" rel="stylesheet">
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="css/prism.css" type="text/css" rel="stylesheet">
-    <link href="css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
+    <link href="vendor/view/css/prism.css" type="text/css" rel="stylesheet">
+    <link href="vendor/view/css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
     <!-- GOOGLE ICON -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- login google -->
@@ -41,41 +41,41 @@ if (isset($_SESSION['email'])) {
 				<div class="card-panel col l3 push-l4">
                     <h3>TagTools</h3>
 					<div id="login" class="section">
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
-            <script>
-              function onSignIn(googleUser) {
-                // Useful data for your client-side scripts:
-                var profile = googleUser.getBasicProfile();
-                document.getElementById('name').value = profile.getName();
-                document.getElementById('email').value = profile.getEmail();
-                console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-                console.log("Name: " + profile.getName());
-                console.log("Image URL: " + profile.getImageUrl());
-                console.log("Email: " + profile.getEmail());
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                        <script>
+                          function onSignIn(googleUser) {
+                            // Useful data for your client-side scripts:
+                            var profile = googleUser.getBasicProfile();
+                            document.getElementById('name').value = profile.getName();
+                            document.getElementById('email').value = profile.getEmail();
+                            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                            console.log("Name: " + profile.getName());
+                            console.log("Image URL: " + profile.getImageUrl());
+                            console.log("Email: " + profile.getEmail());
 
-                // The ID token you need to pass to your backend:
-                var id_token = googleUser.getAuthResponse().id_token;
-                console.log("ID Token: " + id_token);
-                document.getElementById('login-form').submit();
-              };
-            </script>
-            <a href="#" onclick="signOut();">Sign out</a>
-            <script>
-              function signOut() {
-                var auth2 = gapi.auth2.getAuthInstance();
-                auth2.signOut().then(function () {
-                  console.log('User signed out.');
-                });
-              }
-            </script>
-            <div id="form-wrapper">
-              <form action="/server.php" id="login-form" method="post">
-                <input type="hidden" name="name" value="" id="name">
-                <input type="hidden" name="email" value="" id="email">
-                <input type="submit">
-              </form>
-            </div>
-          </div>
+                            // The ID token you need to pass to your backend:
+                            var id_token = googleUser.getAuthResponse().id_token;
+                            console.log("ID Token: " + id_token);
+                            document.getElementById('login-form').submit();
+                          };
+                        </script>
+                        <a href="#" onclick="signOut();">Sign out</a>
+                        <script>
+                          function signOut() {
+                            var auth2 = gapi.auth2.getAuthInstance();
+                            auth2.signOut().then(function () {
+                              console.log('User signed out.');
+                            });
+                          }
+                        </script>
+                        <div id="form-wrapper">
+                          <form action="/server.php" id="login-form" method="post">
+                            <input type="hidden" name="name" value="" id="name">
+                            <input type="hidden" name="email" value="" id="email">
+                            <input type="submit">
+                          </form>
+                        </div>
+                    </div>
 				</div>
 			</div>
     </div>
@@ -84,15 +84,15 @@ if (isset($_SESSION['email'])) {
 	Scripts
 	================================================ -->
 	<!-- jQuery Library -->
-	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="vendor/view/js/jquery-3.3.1.js"></script>
 	<!--materialize js-->
-	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="vendor/view/js/materialize.min.js"></script>
 	<!--prism
 	<script type="text/javascript" src="js/prism.js"></script>-->
 	<!--scrollbar -->
-	<script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
+	<script type="text/javascript" src="vendor/view/js/perfect-scrollbar.min.js"></script>
 	<!--plugins.js - Some Specific JS codes for Plugin Settings-->
-	<script type="text/javascript" src="js/plugins.js"></script>
+	<script type="text/javascript" src="vendor/view/js/plugins.js"></script>
 	<!--css-transition.js - Page specific JS
 	<script type="text/javascript" src="js/css-transition.js"></script>-->
   <!-- login google -->

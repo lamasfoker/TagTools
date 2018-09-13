@@ -14,12 +14,12 @@ if (isset($_POST['email'])) {
     $name = mysqli_real_escape_string($db, $_POST['name']);
     // first check the database to make sure
     // a user does not already exist with the same email
-    $user_check_query = "SELECT * FROM users WHERE email='$email' LIMIT 1";
+    $user_check_query = "SELECT * FROM User WHERE email='$email' LIMIT 1";
     $result = mysqli_query($db, $user_check_query);
     $user = mysqli_fetch_assoc($result);
 
     if (!$user) { // if user doesnt exists
-      $query = "INSERT INTO users (email, name)
+      $query = "INSERT INTO User (email, name)
         VALUES('$email', '$name')";
       mysqli_query($db, $query);
     }
