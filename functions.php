@@ -37,12 +37,12 @@ if (isset($_POST["upload_btn"]))
             {
                 echo "<script type=\"text/javascript\">
                           alert(\"Invalid Format:Please Upload CSV File From CloudFind.\");
-                          window.location = \"upload.php\"
+                          window.location = \"Template/upload.phtml\"
                       </script>";
             } else {
                 echo "<script type=\"text/javascript\">
                         alert(\"CSV File has been successfully Imported.\");
-                        window.location = \"index.php\"
+                        window.location = \"Template/index.phtml\"
                       </script>";
             }
         }
@@ -50,7 +50,7 @@ if (isset($_POST["upload_btn"]))
     } else {
         echo "<script type=\"text/javascript\">
                   alert(\"Invalid File:Please Upload CSV File.\");
-                  window.location = \"upload.php\"
+                  window.location = \"Template/upload.phtml\"
               </script>";
     }
 }

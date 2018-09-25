@@ -27,7 +27,7 @@ if (isset($_POST['email'])) {
     // Finally, register user if there are no errors in the form
     $_SESSION['name'] = $name;
     $_SESSION['email'] = $email;
-    header('Location: upload.php');
+    header('Location: Template/upload.phtml');
     die();
   
 }

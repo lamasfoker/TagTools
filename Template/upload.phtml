@@ -1,28 +1,5 @@
 <?php
-session_start();
-include 'config.php';
-
-if (!isset($_SESSION['email'])) {
-    header('location: login.php');
-}
-
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['email']);
-    unset($_SESSION['name']);
-    header("location: login.php");
-}
-
-if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email'];
-    $query = "SELECT COUNT(*) AS total FROM File WHERE email='$email'";
-    $db = getdb();
-    $result = mysqli_query($db, $query);
-    $count = mysqli_fetch_assoc($result);
-    if ($count['total']>0) {
-        header("location: index.php");
-    }
-}
+include('../Controller/upload.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,18 +12,18 @@ if (isset($_SESSION['email'])) {
         <meta name="keywords" content="CloudFind, TagTools, XML">
         <title>TagTools | Sowftware that implement ClounFind</title>
         <!-- Icon-->
-        <link rel="icon" href="icon/logo-32x32.png" sizes="32x32">
-        <link rel="apple-touch-icon-precomposed" href="icon/logo-152x152.png">
+        <link rel="icon" href="../icon/logo-32x32.png" sizes="32x32">
+        <link rel="apple-touch-icon-precomposed" href="../icon/logo-152x152.png">
         <!-- CORE CSS-->
-        <link href="vendor/view/css/materialize.css" type="text/css" rel="stylesheet">
-        <link href="vendor/view/css/style.css" type="text/css" rel="stylesheet">
+        <link href="../vendor/view/css/materialize.css" type="text/css" rel="stylesheet">
+        <link href="../vendor/view/css/style.css" type="text/css" rel="stylesheet">
         <!-- Custom CSS-->
-        <link href="view/css/custom.css" type="text/css" rel="stylesheet">
+        <link href="../view/css/custom.css" type="text/css" rel="stylesheet">
         <!-- CSS style Horizontal Nav-->
-        <link href="vendor/view/css/style-horizontal.css" type="text/css" rel="stylesheet">
+        <link href="../vendor/view/css/style-horizontal.css" type="text/css" rel="stylesheet">
         <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-        <link href="vendor/view/css/prism.css" type="text/css" rel="stylesheet">
-        <link href="vendor/view/css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
+        <link href="../vendor/view/css/prism.css" type="text/css" rel="stylesheet">
+        <link href="../vendor/view/css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
         <!-- GOOGLE ICON -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
@@ -57,7 +34,7 @@ if (isset($_SESSION['email'])) {
                     <div class="card-panel col l3 push-l4">
                         <h3>TagTools</h3>
                         <div id="upload" class="section">
-                            <form action='functions.php' method='POST' enctype='multipart/form-data'>
+                            <form action='../functions.php' method='POST' enctype='multipart/form-data'>
                                 <!-- notification message -->
                                 <?php if (isset($_SESSION['success'])) : ?>
                                     <div class="error success" >
@@ -76,7 +53,7 @@ if (isset($_SESSION['email'])) {
                                 <input type='file' name='userFile'><br><br>
                                 <button type='submit' name='upload_btn' class="waves-effect waves-light btn">Upload</button>
                             </form>
-                            <a href="upload.php?logout='1'">LOGOUT</a>
+                            <a href="upload.phtml?logout='1'">LOGOUT</a>
                         </div>
                     </div>
                 </div>
@@ -86,15 +63,15 @@ if (isset($_SESSION['email'])) {
         Scripts
         ================================================ -->
         <!-- jQuery Library -->
-        <script type="text/javascript" src="vendor/view/js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="../vendor/view/js/jquery-3.3.1.js"></script>
         <!--materialize js-->
-        <script type="text/javascript" src="vendor/view/js/materialize.min.js"></script>
+        <script type="text/javascript" src="../vendor/view/js/materialize.min.js"></script>
         <!--prism
         <script type="text/javascript" src="js/prism.js"></script>-->
         <!--scrollbar -->
-        <script type="text/javascript" src="vendor/view/js/perfect-scrollbar.min.js"></script>
+        <script type="text/javascript" src="../vendor/view/js/perfect-scrollbar.min.js"></script>
         <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-        <script type="text/javascript" src="vendor/view/js/plugins.js"></script>
+        <script type="text/javascript" src="../vendor/view/js/plugins.js"></script>
         <!--css-transition.js - Page specific JS
         <script type="text/javascript" src="js/css-transition.js"></script>-->
     </body>
