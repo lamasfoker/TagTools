@@ -1,7 +1,7 @@
 <?php
 
 namespace tagtools\Model;
-include 'config.php';
+include '../config.php';
 
 class User
 {

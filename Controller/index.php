@@ -1,4 +1,5 @@
 <?php
+
 include '../functions.php';
 
 if (!isset($_SESSION['email'])) {
@@ -9,6 +10,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['email']);
     header("location: ../Template/login.phtml");
 }
+
 
 /* if you wish
  * if (isset($_SESSION['email'])) {

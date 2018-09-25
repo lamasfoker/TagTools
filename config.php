@@ -1,5 +1,6 @@
 <?php
-function getdb(){
+function getdb()
+{
     $servername = "localhost";
     $username = "root";
     $password = "";

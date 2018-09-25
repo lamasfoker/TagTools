@@ -1,4 +1,5 @@
 <?php
+
 include('../server.php');
 
 if (isset($_SESSION['email'])) {
