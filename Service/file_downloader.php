@@ -4,7 +4,8 @@ $zipname = 'image.zip';
 $zip = new ZipArchive;
 $zip->open($zipname, ZipArchive::CREATE);
 
-foreach ($_POST as $string_data) {
+foreach ($_POST as $string_data)
+{
 
     $name = substr($string_data, 0,strrpos($string_data, '&&'));
     $fileId = substr($string_data, strrpos($string_data, '&&')+2);

@@ -38,32 +38,7 @@ include('../Controller/login.php');
                     <h3>TagTools</h3>
 					<div id="login" class="section">
                         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                        <script>
-                          function onSignIn(googleUser) {
-                            // Useful data for your client-side scripts:
-                            var profile = googleUser.getBasicProfile();
-                            document.getElementById('name').value = profile.getName();
-                            document.getElementById('email').value = profile.getEmail();
-                            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-                            console.log("Name: " + profile.getName());
-                            console.log("Image URL: " + profile.getImageUrl());
-                            console.log("Email: " + profile.getEmail());
-
-                            // The ID token you need to pass to your backend:
-                            var id_token = googleUser.getAuthResponse().id_token;
-                            console.log("ID Token: " + id_token);
-                            document.getElementById('login-form').submit();
-                          };
-                        </script>
                         <a href="#" onclick="signOut();">Sign out</a>
-                        <script>
-                          function signOut() {
-                            var auth2 = gapi.auth2.getAuthInstance();
-                            auth2.signOut().then(function () {
-                              console.log('User signed out.');
-                            });
-                          }
-                        </script>
                         <div id="form-wrapper">
                           <form action="../server.php" id="login-form" method="post">
                             <input type="hidden" name="name" value="" id="name">
@@ -74,7 +49,7 @@ include('../Controller/login.php');
                     </div>
 				</div>
 			</div>
-    </div>
+        </div>
 	</div>
 	<!-- ================================================
 	Scripts
@@ -91,7 +66,8 @@ include('../Controller/login.php');
 	<script type="text/javascript" src="../vendor/view/js/plugins.js"></script>
 	<!--css-transition.js - Page specific JS
 	<script type="text/javascript" src="js/css-transition.js"></script>-->
-  <!-- login google -->
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- login google -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="text/javascript" src="../view/js/google-login.js"></script>
 </body>
 </html>

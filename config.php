@@ -8,7 +8,6 @@ function getdb()
 
     try {
         $con = mysqli_connect($servername, $username, $password, $db);
-        //echo "Connected successfully";
     }
     catch(exception $e)
     {

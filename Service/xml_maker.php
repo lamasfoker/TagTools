@@ -3,7 +3,8 @@ $zipname = 'xml.zip';
 $zip = new ZipArchive;
 $zip->open($zipname, ZipArchive::CREATE);
 
-foreach ($_POST as $string_data) {
+foreach ($_POST as $string_data)
+{
 
     $xml = new SimpleXMLElement('<xml/>');
 
@@ -11,8 +12,10 @@ foreach ($_POST as $string_data) {
     $tags = substr($string_data, strrpos($string_data, '&&')+2);
     $list = $xml->addChild( 'list');
     $index=1;
-    foreach (explode(', ', $tags) as $tag) {
-        if ($tag !== '') {
+    foreach (explode(', ', $tags) as $tag)
+    {
+        if ($tag !== '')
+        {
             $list->addChild("tag-$index", $tag);
             $index++;
         } else {

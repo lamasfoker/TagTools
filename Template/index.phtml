@@ -1,5 +1,9 @@
 <?php
-include '../Controller/index.php';
+
+use tagtools\Controller\Index;
+
+$controller = new Index();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,7 +159,7 @@ include '../Controller/index.php';
           </div>
           <div class="col l9">
             <div class="card-panel" id="table-container">
-                <?php getAllRecords(); ?>
+                <?php $controller->printTable(); ?>
             </div>
           </div>
         </div>
@@ -171,9 +175,7 @@ include '../Controller/index.php';
       <div class="footer-copyright">
         <div class="container">
           <span>Copyright ©
-            <script type="text/javascript">
-              document.write(new Date().getFullYear());
-            </script> <a class="grey-text text-lighten-4" href="https://t.me/LamasFoker" target="_blank">LamaFoker</a> All rights reserved.</span>
+            <?= getdate('year'); ?> <a class="grey-text text-lighten-4" href="https://t.me/LamasFoker" target="_blank">LamaFoker</a> All rights reserved.</span>
           <span class="right hide-on-small-only"> Design and Developed by <a class="grey-text text-lighten-4" href="https://t.me/LamasFoker/">LamaFoker</a></span>
         </div>
       </div>

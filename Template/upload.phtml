@@ -35,17 +35,6 @@ include('../Controller/upload.php');
                         <h3>TagTools</h3>
                         <div id="upload" class="section">
                             <form action='../functions.php' method='POST' enctype='multipart/form-data'>
-                                <!-- notification message -->
-                                <?php if (isset($_SESSION['success'])) : ?>
-                                    <div class="error success" >
-                                        <p>
-                                            <?php
-                                            echo $_SESSION['success'];
-                                            unset($_SESSION['success']);
-                                            ?>
-                                        </p>
-                                    </div>
-                                <?php endif ?>
                                 <!-- logged in user information -->
                                 <?php  if (isset($_SESSION['email'])) : ?>
                                     <p>Benvenuto <strong><?= $_SESSION['name']; ?></strong></p>
