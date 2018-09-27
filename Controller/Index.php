@@ -2,6 +2,8 @@
 
 namespace tagtools\Controller;
 
+use tagtools\Model\File;
+use tagtools\Model\Tag;
 use tagtools\Model\User;
 
 class Index
@@ -9,39 +11,22 @@ class Index
 
     /**@var User**/
     private $_user;
-
-    public function init()
-    {
-        include '../functions.php';
-
-        if (!isset($_SESSION['email'])) {
-            header('location: ../Template/login.phtml');
-        }
-        if (isset($_GET['logout'])) {
-            session_destroy();
-            unset($_SESSION['email']);
-            header("location: ../Template/login.phtml");
-        }
-
-
-    }
+    /**@var File**/
+    private $_file;
+    /**@var Tag**/
+    private $_tag;
 
     public function __construct()
     {
-        $this->init();
         $this->_user = new User($_SESSION['email']);
+        $this->_file = new File($_SESSION['email']);
+        $this->_tag = new Tag($_SESSION['email']);
     }
 
     public function printTable()
     {
-
-        $sqlFile = "SELECT * FROM File WHERE email='$email'"; /*WHERE type='jpg' OR type='gif' OR type='png' OR type='jpeg'";*/
-        $sqlTag = "SELECT * FROM Tag WHERE email='$email'";
-        $resultFile = mysqli_query($db, $sqlFile);
-        $resulTag = mysqli_query($db, $sqlTag);
-
         $table = "<div id='file-table-container'>";
-        if (mysqli_num_rows($resultFile) > 0) {
+        if ($this->_file->isPresentUserData()) {
             echo "<table id='file-table' class='highlight centered'>
             <thead><tr><th>Id</th>
                 <th>Tipo</th>
@@ -49,7 +34,7 @@ class Index
                 <th>Tag</th>
             </tr></thead><tbody>";
 
-            while($row = mysqli_fetch_assoc($resultFile)) {
+            while($row = mysqli_fetch_assoc($this->_file->selectUserData())) {
                 echo '<tr><td>' . $row['id'].'</td>
                     <td>' . $row['type'].'</td>
                     <td>' . $row['name'].'</td>
@@ -64,13 +49,13 @@ class Index
         }
         echo "</div>";
         echo "<div id='tag-table-container'>";
-        if (mysqli_num_rows($resulTag) > 0) {
+        if ($this->_tag->isPresentUserData()) {
             echo "<table id='tag-table' class='highlight centered'>
             <thead><tr>
                 <th>Name</th>
             </tr></thead><tbody>";
 
-            while($row = mysqli_fetch_assoc($resulTag)) {
+            while($row = mysqli_fetch_assoc($this->_tag->selectUserData())) {
                 echo "<tr><td>" . $row['name']."</td></tr>";
             }
 
@@ -83,7 +68,6 @@ class Index
         $table .= "</div>";
 
         echo $table;
-
     }
 }
 

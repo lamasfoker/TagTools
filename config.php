@@ -11,6 +11,7 @@ function getdb()
     }
     catch(exception $e)
     {
+        //TODO: make a log
         echo "Connection failed: " . $e->getMessage();
     }
     return $con;
