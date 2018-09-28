@@ -2,6 +2,8 @@
 
 namespace tagtools\Model;
 
+require_once 'AbstractModel.php';
+
 class Tag extends AbstractModel
 {
 
@@ -18,7 +20,7 @@ class Tag extends AbstractModel
 
             return isset($result);
         }
-        return false;
+        return true;
     }
 
     public function deleteUserData()

@@ -2,7 +2,11 @@
 
 use tagtools\Controller\Index;
 
-$controller = new Index();
+require_once '../Controller/Index.php';
+
+session_start();
+
+$controller = new Index($_SESSION['email']);
 
 ?>
 <!DOCTYPE html>
@@ -48,7 +52,7 @@ $controller = new Index();
             <ul class="left">
               <li>
                 <h1 class="logo-wrapper">
-                  <a href="index.phtml" class="brand-logo darken-1">
+                  <a href="../index.php" class="brand-logo darken-1">
                     <img src="../media/icon/materialize-logo.png" alt="materialize logo">
                     <span class="logo-text hide-on-med-and-down">TagTools</span>
                   </a>
@@ -99,7 +103,11 @@ $controller = new Index();
                   <i class="material-icons">face</i> <?= $_SESSION['email']; ?></a>
               </li>
               <li>
-                <a href="upload.phtml?logout='1'" class="grey-text text-darken-1 modal-trigger">
+                <a href="#" class="grey-text text-darken-1">
+                  <i class="material-icons">face</i> <?= $_SESSION['name']; ?></a>
+              </li>
+              <li>
+                <a href="../upload.php?logout='1'" class="grey-text text-darken-1 modal-trigger">
                   <i class="material-icons">keyboard_tab</i> Logout</a>
               </li>
             </ul>
@@ -129,16 +137,16 @@ $controller = new Index();
           <p>Creare un nuovo database richiede l'eliminazione di quello corrente. Puoi fare il download del database dalle Impostazioni per evitare la perdita di dati</p>
         </div>
         <div class="modal-footer">
-          <a href="../delete_user_db.php" class="modal-close waves-effect waves-green btn-flat" id="new-database">Nuovo</a>
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Annulla</a>
+          <a href="../Service/delete_user_db.php" class="modal-close waves-effect waves-green btn-flat" id="new-database">Nuovo</a>
+          <a class="modal-close waves-effect waves-green btn-flat">Annulla</a>
         </div>
       </div>
       <!-- FORM HIDDEN -->
       <div id="form-wrapper">
-        <form action="../xml_maker.php" id="xml-download-form" method="post">
+        <form action="../Service/xml_maker.php" id="xml-download-form" method="post">
           <input type="submit">
         </form>
-        <form action="../file_downloader.php" id="file-download-form" method="post">
+        <form action="../Service/file_downloader.php" id="file-download-form" method="post">
           <input type="submit">
         </form>
       </div>
@@ -155,11 +163,12 @@ $controller = new Index();
                     <br><br><br><br><br><br><br><br>Nessuna<br><br>Immagine<br><br>Selezionata<br><br><br><br><br><br><br><br>
                 </div>
                 <table id="selected-table" class="highlight"></table>
+                <ul id="selected-file-pagination" class="pagination"></ul>
             </div>
           </div>
           <div class="col l9">
             <div class="card-panel" id="table-container">
-                <?php $controller->printTable(); ?>
+                <?php $controller->printTables(); ?>
             </div>
           </div>
         </div>
@@ -175,8 +184,9 @@ $controller = new Index();
       <div class="footer-copyright">
         <div class="container">
           <span>Copyright ©
-            <?= getdate('year'); ?> <a class="grey-text text-lighten-4" href="https://t.me/LamasFoker" target="_blank">LamaFoker</a> All rights reserved.</span>
+            <?= date("Y"); ?> <a class="grey-text text-lighten-4" href="https://t.me/LamasFoker" target="_blank">LamaFoker</a> All rights reserved.</span>
           <span class="right hide-on-small-only"> Design and Developed by <a class="grey-text text-lighten-4" href="https://t.me/LamasFoker/">LamaFoker</a></span>
+            <!-- TODO: change the name of the web app in the footer -->
         </div>
       </div>
     </footer>

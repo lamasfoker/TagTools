@@ -4,28 +4,27 @@ namespace tagtools\Controller;
 
 use tagtools\Model\File;
 use tagtools\Model\Tag;
-use tagtools\Model\User;
+
+require_once '../Model/File.php';
+require_once '../Model/Tag.php';
 
 class Index
 {
 
-    /**@var User**/
-    private $_user;
     /**@var File**/
     private $_file;
     /**@var Tag**/
     private $_tag;
 
-    public function __construct()
+    public function __construct($email)
     {
-        $this->_user = new User($_SESSION['email']);
-        $this->_file = new File($_SESSION['email']);
-        $this->_tag = new Tag($_SESSION['email']);
+        $this->_file = new File($email);
+        $this->_tag = new Tag($email);
     }
 
-    public function printTable()
+    public function printTables()
     {
-        $table = "<div id='file-table-container'>";
+        echo "<div id='file-table-container'>";
         if ($this->_file->isPresentUserData()) {
             echo "<table id='file-table' class='highlight centered'>
             <thead><tr><th>Id</th>
@@ -34,11 +33,13 @@ class Index
                 <th>Tag</th>
             </tr></thead><tbody>";
 
-            while($row = mysqli_fetch_assoc($this->_file->selectUserData())) {
+            $return = $this->_file->selectUserData();
+
+            while($row = mysqli_fetch_assoc($return)) {
                 echo '<tr><td>' . $row['id'].'</td>
-                    <td>' . $row['type'].'</td>
-                    <td>' . $row['name'].'</td>
-                    <td>' . $row['tag'].'</td></tr>';
+                    <td>'.$row['type'].'</td>
+                    <td>'.$row['name'].'</td>
+                    <td>'.$row['tag'].'</td></tr>';
             }
 
             echo "</tbody></table>";
@@ -55,8 +56,10 @@ class Index
                 <th>Name</th>
             </tr></thead><tbody>";
 
-            while($row = mysqli_fetch_assoc($this->_tag->selectUserData())) {
-                echo "<tr><td>" . $row['name']."</td></tr>";
+            $return = $this->_tag->selectUserData();
+
+            while($row = mysqli_fetch_assoc($return)) {
+                echo "<tr><td>".$row['name']."</td></tr>";
             }
 
             echo "</tbody></table>";
@@ -65,21 +68,6 @@ class Index
         } else {
             echo "you have no records";
         }
-        $table .= "</div>";
-
-        echo $table;
+        echo "</div>";
     }
 }
-
-
-/* if you wish
- * if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email'];
-    $query = "SELECT COUNT(*) AS total FROM File WHERE email='$email'";
-    $db = getdb();
-    $result = mysqli_query($db, $query);
-    $count = mysqli_fetch_assoc($result);
-    if ($count['total'] == 0) {
-        header("location: upload.phtml");
-    }
-}*/

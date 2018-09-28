@@ -2,7 +2,7 @@
 
 namespace tagtools\Model;
 
-include '../config.php';
+include_once 'config.php';
 
 abstract class AbstractModel
 {

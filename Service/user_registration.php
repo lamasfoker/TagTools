@@ -2,20 +2,20 @@
 
 use \tagtools\Model\User;
 
+require_once '../Model/User.php';
+
 session_start();
 
 if (isset($_POST['email']))
 {
-
     $user = new User($_POST['email']);
 
-    if (!$user->isPresent())
+    if (!$user->isPresentUserData())
     {
-        $user->setName($_POST['name']);
-        $user->save();
-        $_SESSION['name'] = $user->getName();
-        $_SESSION['email'] = $user->getEmail();
+        $user->insertRow([$_POST['name']]);
     }
 
-    header('Location: Template/upload.phtml');
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['email'] = $_POST['email'];
+    header('Location: ../upload.php');
 }

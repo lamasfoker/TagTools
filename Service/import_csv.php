@@ -1,40 +1,44 @@
 <?php
 
-use \tagtools\Model\User;
+use \tagtools\Model\Tag;
+use \tagtools\Model\File;
+
+require_once '../Model/Tag.php';
+require_once '../Model/File.php';
 
 session_start();
 
 if (isset($_POST["upload_btn"]))
 {
-    $filename=$_FILES["userFile"]["tmp_name"];
+    $filename = $_FILES["userFile"]["tmp_name"];
     $email = $_SESSION['email'];
 
     $targetPath = createCsv($filename);
 
-    $user = new User($email);
+    $fileModel = new File($email);
+    $tagModel = new Tag($email);
 
     if ($_FILES["userFile"]["size"] > 0 && getFileType(basename( $_FILES['userFile']['name'] )) === 'csv')
     {
         $file = fopen($targetPath, "r");
-        fgetcsv($file);
+        fgetcsv($file); //I don't save first line
         while (($getData = fgetcsv($file)) !== false)
         {
-
             foreach (getTag($getData[4]) as $tag)
             {
-                $user->insertTag($tag);
+                $tagModel->insertRow([$tag]);
             }
 
-            if($user->insertFile($getData[2], getFileName($getData[3]), getFilePath($getData[3]), getFileType($getData[3]), $getData[4]))
+            if(!$fileModel->insertRow([$getData[2], getFileName($getData[3]), getFilePath($getData[3]), getFileType($getData[3]), $getData[4]]))
             {
-                echo alert('Invalid Format:Please Upload CSV File From CloudFind.','Template/upload.phtml');
-            } else {
-                echo alert('CSV File has been successfully Imported.', 'Template/index.phtml');
+                fclose($file);
+                echo alert('Invalid Format:Please Upload CSV File From CloudFind.','../upload.php');
             }
         }
         fclose($file);
+        echo alert('CSV File has been successfully Imported.', '../index.php');
     } else {
-        echo alert('Invalid File:Please Upload CSV File.', 'Template/upload.phtml');
+        echo alert('Invalid File:Please Upload CSV File.', '../upload.php');
     }
 }
 
@@ -74,7 +78,7 @@ function getTag($string_data)
 
 function createCsv($filename)
 {
-    $targetPath = "data/".$_SESSION['email'].'.csv';
+    $targetPath = "../data/".$_SESSION['email'].'.csv';
     move_uploaded_file( $filename, $targetPath );
     return $targetPath;
 }

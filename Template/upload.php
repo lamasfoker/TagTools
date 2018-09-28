@@ -31,7 +31,7 @@
                     <div class="card-panel col l3 push-l4">
                         <h3>TagTools</h3>
                         <div id="upload" class="section">
-                            <form action='../functions.php' method='POST' enctype='multipart/form-data'>
+                            <form action='../Service/import_csv.php' method='POST' enctype='multipart/form-data'>
                                 <!-- logged in user information -->
                                 <?php  if (isset($_SESSION['email'])) : ?>
                                     <p>Benvenuto <strong><?= $_SESSION['name']; ?></strong></p>
@@ -39,7 +39,7 @@
                                 <input type='file' name='userFile'><br><br>
                                 <button type='submit' name='upload_btn' class="waves-effect waves-light btn">Upload</button>
                             </form>
-                            <a href="upload.phtml?logout='1'">LOGOUT</a>
+                            <a href="../upload.php?logout='1'">LOGOUT</a>
                         </div>
                     </div>
                 </div>

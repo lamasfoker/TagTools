@@ -2,6 +2,8 @@
 
 namespace tagtools\Model;
 
+require_once 'AbstractModel.php';
+
 class File extends AbstractModel
 {
 

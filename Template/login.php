@@ -37,7 +37,7 @@
                         <div class="g-signin2" data-onsuccess="onSignIn"></div>
                         <a href="#" onclick="signOut();">Sign out</a>
                         <div id="form-wrapper">
-                          <form action="../server.php" id="login-form" method="post">
+                          <form action="../Service/user_registration.php" id="login-form" method="post">
                             <input type="hidden" name="name" value="" id="name">
                             <input type="hidden" name="email" value="" id="email">
                             <input type="submit">
@@ -65,6 +65,6 @@
 	<script type="text/javascript" src="js/css-transition.js"></script>-->
     <!-- login google -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="text/javascript" src="../View/js/google-login.js"></script>
+    <script type="text/javascript" src="../View/js/google-login.js"></script>
 </body>
 </html>
