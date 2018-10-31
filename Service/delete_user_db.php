@@ -21,4 +21,4 @@ if ($user->isPresentUserData())
     $tag->deleteUserData();
 }
 
-header('Location: ../heupload.php');
+header('Location: ../upload.php');
