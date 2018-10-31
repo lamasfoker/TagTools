@@ -27,7 +27,8 @@ class Index
         echo "<div id='file-table-container'>";
         if ($this->_file->isPresentUserData()) {
             echo "<table id='file-table' class='highlight centered'>
-            <thead><tr><th>Id</th>
+            <thead><tr>
+                <th>Id</th>
                 <th>Tipo</th>
                 <th>Nome</th>
                 <th>Tag</th>
