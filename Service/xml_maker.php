@@ -1,5 +1,5 @@
 <?php
-$zipName = 'xml.zip';
+$zipName = '../tmp/xml.zip';
 $zip = new ZipArchive;
 $zip->open($zipName, ZipArchive::CREATE);
 
@@ -8,7 +8,7 @@ foreach ($_POST as $string_data)
 
     $xml = new SimpleXMLElement('<xml/>');
 
-    $name = substr($string_data, 0,strrpos($string_data, '.'));
+    $fileName = substr($string_data, 0,strrpos($string_data, '.')).'.xml';
     $tags = substr($string_data, strrpos($string_data, '&&')+2);
     $list = $xml->addChild( 'list');
     $index=1;
@@ -22,13 +22,13 @@ foreach ($_POST as $string_data)
             $list->addChild("tag-0", 'null');
         }
     }
-    $xml->asXML('/tmp/'.$name.'.xml');
-    $zip->addFile('/tmp/'.$name.'.xml');
+    $xml->asXML("/tmp/$fileName");
+    $zip->addFile("/tmp/$fileName");
 }
 
 $zip->close();
 
 header('Content-Type: application/zip');
-header('Content-disposition: attachment; filename='.$zipName);
+header("Content-disposition: attachment; filename=$zipName");
 readfile($zipName);
-unlink($zipname);
+unlink($zipName);
