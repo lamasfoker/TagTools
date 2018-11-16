@@ -9,8 +9,10 @@ foreach ($_POST as $string_data)
 
     $img = substr($string_data, 0,strrpos($string_data, '&&'));
     $fileId = substr($string_data, strrpos($string_data, '&&')+2);
-    //to bust the download check in the tmp folder if the file is downloaded yet
-    file_put_contents("../tmp/$fileId", file_get_contents("https://docs.google.com/uc?id=$fileId&export=download"));
+    if (!file_exists("../tmp/$fileId"))
+    {
+        file_put_contents("../tmp/$fileId", file_get_contents("https://docs.google.com/uc?id=$fileId&export=download"));
+    }
     $zip->addFile("../tmp/$fileId", $img);
 }
 
