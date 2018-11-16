@@ -16,8 +16,8 @@
     <link href="../vendor/view/css/style.css" type="text/css" rel="stylesheet">
     <!-- Custom CSS-->
     <link href="../View/css/custom.css" type="text/css" rel="stylesheet">
-    <!-- Custom CSS-->
-    <link href="../View/css/login-background.css" type="text/css" rel="stylesheet">
+    <!-- Background CSS-->
+    <link href="../View/css/background.css" type="text/css" rel="stylesheet">
     <!-- CSS style Horizontal Nav-->
     <link href="../vendor/view/css/style-horizontal.css" type="text/css" rel="stylesheet">
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
@@ -33,20 +33,16 @@
 <img src="../media/images/background.jpg" class="background"/>
 <div id="main">
     <div class="container">
-        <div class="row">
-            <div class="col l3 push-l4">
-                <div id="login" class="section">
-                    <img src="../media/images/logoTitle.png" />
-                    <div class="g-signin2 col l3 push-l10" data-onsuccess="onSignIn"></div>
-                    <div id="form-wrapper">
-                        <form action="../Service/user_registration.php" id="login-form" method="post">
-                            <input type="hidden" name="name" value="" id="name">
-                            <input type="hidden" name="email" value="" id="email">
-                            <input type="hidden" name="imageUrl" value="" id="imageUrl">
-                            <input type="submit">
-                        </form>
-                    </div>
-                </div>
+        <div id="login" class="section">
+            <img src="../media/images/logoTitle.png" />
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <div id="form-wrapper">
+                <form action="../Service/user_registration.php" id="login-form" method="post">
+                    <input type="hidden" name="name" value="" id="name">
+                    <input type="hidden" name="email" value="" id="email">
+                    <input type="hidden" name="imageUrl" value="" id="imageUrl">
+                    <input type="submit">
+                </form>
             </div>
         </div>
     </div>
