@@ -10,6 +10,7 @@ function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     document.getElementById('name').value = profile.getName();
     document.getElementById('email').value = profile.getEmail();
+    document.getElementById('imageUrl').value = profile.getImageUrl();
     console.log("ID: " + profile.getId()); // Don't send this directly to your server!
     console.log("Name: " + profile.getName());
     console.log("Image URL: " + profile.getImageUrl());

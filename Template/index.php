@@ -99,12 +99,10 @@ $controller = new Index($_SESSION['email']);
             <!-- profile-dropdown -->
             <ul id="profile-dropdown" class="dropdown-content">
               <li>
-                <a href="#" class="grey-text text-darken-1">
-                  <i class="material-icons">face</i> <?= $_SESSION['email']; ?></a>
-              </li>
-              <li>
-                <a href="#" class="grey-text text-darken-1">
-                  <i class="material-icons">face</i> <?= $_SESSION['name']; ?></a>
+                <a href="mailto:<?= $_SESSION['email']; ?>" class="grey-text text-darken-1">
+                    <i class="material-icons"><img src="<?= $_SESSION['imageUrl']; ?>" class="circle" id="userImg"/></i>
+                    <?= $_SESSION['name']; ?>
+                </a>
               </li>
               <li>
                 <a href="../upload.php?logout='1'" class="grey-text text-darken-1 modal-trigger">
@@ -159,9 +157,6 @@ $controller = new Index($_SESSION['email']);
             <div class="card-panel">
                 <span id="item-selected">Immagini Selezionate</span>
                 <div class="divider"></div>
-                <div id="sku-selected">
-                    <br><br><br><br><br><br><br><br>Nessuna<br><br>Immagine<br><br>Selezionata<br><br><br><br><br><br><br><br>
-                </div>
                 <table id="selected-table" class="highlight"></table>
                 <ul id="selected-file-pagination" class="pagination"></ul>
             </div>
