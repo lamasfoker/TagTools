@@ -17,6 +17,7 @@ if (isset($_GET['logout']))
     session_destroy();
     unset($_SESSION['email']);
     unset($_SESSION['name']);
+    unset($_SESSION['imageUrl']);
     header("location: login.php");
     return;
 }

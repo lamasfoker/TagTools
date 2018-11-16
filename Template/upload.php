@@ -16,6 +16,8 @@
     <link href="../vendor/view/css/style.css" type="text/css" rel="stylesheet">
     <!-- Custom CSS-->
     <link href="../View/css/custom.css" type="text/css" rel="stylesheet">
+    <!-- Background CSS-->
+    <link href="../View/css/background.css" type="text/css" rel="stylesheet">
     <!-- CSS style Horizontal Nav-->
     <link href="../vendor/view/css/style-horizontal.css" type="text/css" rel="stylesheet">
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
@@ -25,22 +27,18 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<div id="main">
+<img src="../media/images/background.jpg" class="background"/>
+<div id="main" >
     <div class="container">
-        <div class="row">
-            <div class="card-panel col l3 push-l4">
-                <h3>TagTools</h3>
-                <div id="upload" class="section">
-                    <form action='../Service/import_csv.php' method='POST' enctype='multipart/form-data'>
-                        <!-- logged in user information -->
-                        <?php  if (isset($_SESSION['email'])) : ?>
-                            <p>Benvenuto <strong><?= $_SESSION['name']; ?></strong></p>
-                        <?php endif ?>
-                        <input type='file' name='userFile'><br><br>
-                        <button type='submit' name='upload_btn' class="waves-effect waves-light btn">Upload</button>
-                    </form>
-                    <a href="../upload.php?logout='1'">LOGOUT</a>
-                </div>
+        <div id="upload" class="section">
+            <img src="../media/images/logoTitle.png" />
+            <div id="form-wrapper card-panel">
+                <form action="../Service/import_csv.php" enctype='multipart/form-data' method="post">
+                    <input id="real-file-btn" type='file' name='userFile' class="hide">
+                    <a id="file-btn" class="waves-effect waves-light btn">Scegli un file</a><br><br>
+                    <button id="submit" type='submit' name='upload_btn' class="waves-effect waves-light btn disabled">Upload</button><br><br>
+                    <a href="../upload.php?logout='1'" class="waves-effect waves-light btn">Logout</a>
+                </form>
             </div>
         </div>
     </div>
@@ -60,5 +58,7 @@
 <script type="text/javascript" src="../vendor/view/js/plugins.js"></script>
 <!--css-transition.js - Page specific JS
    <script type="text/javascript" src="js/css-transition.js"></script>-->
+<!-- Upload Button -->
+<script type="text/javascript" src="../View/js/upload.js"></script>
 </body>
 </html>
