@@ -1,7 +1,7 @@
 <?php
-$zipName = '../tmp/xml.zip';
+$zipName = 'xml.zip';
 $zip = new ZipArchive;
-$zip->open($zipName, ZipArchive::CREATE);
+$zip->open("../tmp/$zipName", ZipArchive::CREATE);
 
 foreach ($_POST as $string_data)
 {
@@ -23,12 +23,12 @@ foreach ($_POST as $string_data)
         }
     }
     $xml->asXML("/tmp/$fileName");
-    $zip->addFile("/tmp/$fileName");
+    $zip->addFile("/tmp/$fileName", $fileName);
 }
 
 $zip->close();
 
 header('Content-Type: application/zip');
 header("Content-disposition: attachment; filename=$zipName");
-readfile($zipName);
-unlink($zipName);
+readfile("../tmp/$zipName");
+unlink("../tmp/$zipName");
