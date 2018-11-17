@@ -1,5 +1,6 @@
 CREATE TABLE Tag (
   email VARCHAR(300) NOT NULL,
   name VARCHAR(300) NOT NULL,
+  uses INT(3) NOT NULL,
   CONSTRAINT PK_Tag PRIMARY KEY (email, name)
 );

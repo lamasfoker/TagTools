@@ -10,11 +10,12 @@ class Tag extends AbstractModel
     public function insertRow($data)
     {
         $tag = mysqli_real_escape_string($this->_db, $data[0]);
+        $uses = mysqli_real_escape_string($this->_db, $data[1]);
 
         if ($tag !== '')
         {
-            $query = "INSERT into Tag (email, name)
-                    values ('$this->_email', '$tag')";
+            $query = "INSERT into Tag (email, name, uses)
+                    values ('$this->_email', '$tag', '$uses')";
 
             $result = mysqli_query($this->_db, $query);
 

@@ -35,9 +35,16 @@ class File extends AbstractModel
         return !is_null(mysqli_fetch_assoc($result));
     }
 
-    public function selectUserData()
+    public function selectUserImages()
     {
         $query = "SELECT * FROM File WHERE email='$this->_email' AND type IN ('jpg', 'gif', 'png','jpeg')";
+
+        return mysqli_query($this->_db, $query);
+    }
+
+    public function selectUserData()
+    {
+        $query = "SELECT * FROM File WHERE email='$this->_email'";
 
         return mysqli_query($this->_db, $query);
     }
