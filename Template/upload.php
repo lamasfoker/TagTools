@@ -12,17 +12,17 @@
     <link rel="icon" href="../media/icon/logo-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon-precomposed" href="../media/icon/logo-152x152.png">
     <!-- CORE CSS-->
-    <link href="../vendor/view/css/materialize.css" type="text/css" rel="stylesheet">
-    <link href="../vendor/view/css/style.css" type="text/css" rel="stylesheet">
+    <link href="../vendor/View/css/materialize.css" type="text/css" rel="stylesheet">
+    <link href="../vendor/View/css/style.css" type="text/css" rel="stylesheet">
     <!-- Custom CSS-->
     <link href="../View/css/custom.css" type="text/css" rel="stylesheet">
     <!-- Background CSS-->
     <link href="../View/css/background.css" type="text/css" rel="stylesheet">
     <!-- CSS style Horizontal Nav-->
-    <link href="../vendor/view/css/style-horizontal.css" type="text/css" rel="stylesheet">
+    <link href="../vendor/View/css/style-horizontal.css" type="text/css" rel="stylesheet">
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="../vendor/view/css/prism.css" type="text/css" rel="stylesheet">
-    <link href="../vendor/view/css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
+    <link href="../vendor/View/css/prism.css" type="text/css" rel="stylesheet">
+    <link href="../vendor/View/css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
     <!-- GOOGLE ICON -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -47,15 +47,15 @@
    Scripts
    ================================================ -->
 <!-- jQuery Library -->
-<script type="text/javascript" src="../vendor/view/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../vendor/View/js/jquery-3.3.1.js"></script>
 <!--materialize js-->
-<script type="text/javascript" src="../vendor/view/js/materialize.min.js"></script>
+<script type="text/javascript" src="../vendor/View/js/materialize.min.js"></script>
 <!--prism
    <script type="text/javascript" src="js/prism.js"></script>-->
 <!--scrollbar -->
-<script type="text/javascript" src="../vendor/view/js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="../vendor/View/js/perfect-scrollbar.min.js"></script>
 <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-<script type="text/javascript" src="../vendor/view/js/plugins.js"></script>
+<script type="text/javascript" src="../vendor/View/js/plugins.js"></script>
 <!--css-transition.js - Page specific JS
    <script type="text/javascript" src="js/css-transition.js"></script>-->
 <!-- Upload Button -->
