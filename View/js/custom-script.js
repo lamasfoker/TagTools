@@ -44,8 +44,8 @@ function addSelectedItem() {
     let table = $('#selected-table'),
         fileName = $(this).parent().children(':nth-child(3)').text(),
         cross = '<i class="small material-icons cross">clear</i>',
-        fileId = $(this).children(':nth-child(1)').text(),
-        fileTag = $(this).children(':nth-child(4)').text();
+        fileId = $(this).parent().children(':nth-child(1)').text(),
+        fileTag = $(this).parent().children(':nth-child(5)').text();
     if (!table.children(':contains('+fileName+')').length) {
         table.append("<tr><td>"+fileName+"</td><td>"+cross+"</td><td>"+fileId+"</td><td>"+fileTag+"</td></tr>");
         $('.cross').last().click(deleteSelectedItem);

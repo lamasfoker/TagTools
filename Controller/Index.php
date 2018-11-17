@@ -51,7 +51,7 @@ class Index
                     <td>'.$row['name'].'</td>
                     <td>'.$row['path'].'</td>
                     <td>'.$row['tag'].'</td>
-                    <td class="preview"><a href="https://drive.google.com/file/d/'.$row['id'].'/View" target="_blank"><i class="black-text material-icons">visibility</i></a></td></tr>';
+                    <td class="preview"><a href="https://drive.google.com/file/d/'.$row['id'].'/view" target="_blank"><i class="black-text material-icons">visibility</i></a></td></tr>';
             }
 
             echo "</tbody></table>";

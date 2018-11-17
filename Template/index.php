@@ -17,7 +17,7 @@ $controller = new Index($_SESSION['email']);
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="TagTools is a web application that manage image and tag, it's modern, responsive and based on Material Design by Google. ">
     <meta name="keywords" content="CloudFind, TagTools, XML">
-    <title>TagTools | Sowftware that implement ClounFind</title>
+    <title>TagTools | ClounFind plugin</title>
     <!-- Icon-->
     <link rel="icon" href="../media/icon/logo-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon-precomposed" href="../media/icon/logo-152x152.png">
@@ -65,7 +65,7 @@ $controller = new Index($_SESSION['email']);
                 <ul class="right hide-on-med-and-down">
                     <li>
                         <a href="#" class="waves-effect waves-block waves-light settings-button">
-                            <i class="material-icons">sync<small id="row-counter" class="notification-badge pink accent-2">0</small></i>
+                            <i class="material-icons">content_copy<small id="row-counter" class="notification-badge pink accent-2">0</small></i>
                         </a>
                     </li>
                     <li>
