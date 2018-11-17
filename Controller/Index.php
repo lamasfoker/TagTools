@@ -31,15 +31,24 @@ class Index
                 <th>Id</th>
                 <th>Tipo</th>
                 <th>Nome</th>
+                <th>Path</th>
                 <th>Tag</th>
             </tr></thead><tbody>";
 
             $return = $this->_file->selectUserData();
 
             while($row = mysqli_fetch_assoc($return)) {
-                echo '<tr><td>' . $row['id'].'</td>
+                echo '<tr';
+
+                if (in_array($row['type'], ['jpg', 'jpeg', 'png', 'gif']))
+                {
+                    echo ' class="img"';
+                }
+
+                echo '><td>' . $row['id'].'</td>
                     <td>'.$row['type'].'</td>
                     <td>'.$row['name'].'</td>
+                    <td>'.$row['path'].'</td>
                     <td>'.$row['tag'].'</td></tr>';
             }
 
@@ -54,13 +63,14 @@ class Index
         if ($this->_tag->isPresentUserData()) {
             echo "<table id='tag-table' class='highlight centered'>
             <thead><tr>
-                <th>Name</th>
+                <th>Nome</th>
+                <th>N° Usi</th>
             </tr></thead><tbody>";
 
             $return = $this->_tag->selectUserData();
 
             while($row = mysqli_fetch_assoc($return)) {
-                echo "<tr><td>".$row['name']."</td></tr>";
+                echo "<tr><td>".$row['name']."</td><td>".$row['uses']."</td></tr>";
             }
 
             echo "</tbody></table>";

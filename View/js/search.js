@@ -59,7 +59,7 @@ function searchTagFile() {
 
 	row = table.getElementsByTagName('tr');
 	for (row_id=1; row_id<row.length; row_id++){
-		allTag = row[row_id].getElementsByTagName('td')[3].textContent;
+		allTag = row[row_id].getElementsByTagName('td')[4].textContent;
 
 		query = input.split(' ');
 		nString =query.length;

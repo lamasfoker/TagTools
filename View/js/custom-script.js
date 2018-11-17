@@ -8,7 +8,7 @@ $(document).ready(function(){
 
   $('#change-table-btn').click(changeTable);
   $('#tag-table > tbody > tr').click(searchThisTag);
-  $('#file-table > tbody > tr').click(addSelectedItem);
+  $('#file-table > tbody > tr.img').click(addSelectedItem);
   $('#search').on('input', searchFile);
   $('#xml-download-btn').click(downloadXml);
   $('#file-download-btn').click(downloadFile);
