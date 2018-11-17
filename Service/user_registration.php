@@ -12,7 +12,7 @@ if (isset($_POST['email']))
 
     if (!$user->isPresentUserData())
     {
-        $user->insertRow([$_POST['name']]);
+        $user->insertRow([$_POST['name'], $_POST['imageUrl']]);
     }
 
     $_SESSION['name'] = $_POST['name'];

@@ -22,18 +22,31 @@ if (isset($_POST["upload_btn"]))
     {
         $file = fopen($targetPath, "r");
         fgetcsv($file); //I don't save first line
+        $tags = '';
         while (($getData = fgetcsv($file)) !== false)
         {
             foreach (getTag($getData[4]) as $tag)
             {
-                $tagModel->insertRow([$tag]);
+                if ($tag !== '')
+                {
+                    $tags .= ", $tag";
+                }
             }
 
-            if(!$fileModel->insertRow([$getData[2], getFileName($getData[3]), getFilePath($getData[3]), getFileType($getData[3]), $getData[4]]))
+            if (getFileType($getData[3]) != 'null')
             {
-                fclose($file);
-                echo alert('Invalid Format:Please Upload CSV File From CloudFind.','../upload.php');
+                if(!$fileModel->insertRow([$getData[2], getFileName($getData[3]), getFilePath($getData[3]), getFileType($getData[3]), $getData[4]]))
+                {
+                    fclose($file);
+                    echo alert('Invalid Format:Please Upload CSV File From CloudFind.','../upload.php');
+                }
             }
+        }
+        $tags = substr($tags, 2);
+        foreach (getTag($tags) as $tag)
+        {
+            $uses = substr_count($tags, $tag);
+            $tagModel->insertRow([$tag, $uses]);
         }
         fclose($file);
         echo alert('CSV File has been successfully Imported.', '../index.php');
