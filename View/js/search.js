@@ -1,5 +1,5 @@
 function searchFile() {
-    var input, table, row_id, col_id;
+    var input, table, row_id, col_id, row_number = 0;
     var row = [];
     var cell = [];
 
@@ -19,16 +19,18 @@ function searchFile() {
     	for (col_id=1; col_id<cell.length; col_id++) {
 	        if (cell[col_id].textContent.indexOf(input) > -1) {
 	            row[row_id].style.display = '';
+	            row_number++;
+	            break;
 	        }
 	    }
     }
-
+    setNumberRow(row_number);
     pagination();
 
 }
 
 function searchTag() {
-    var input, table, row_id, cell;
+    var input, table, row_id, cell, row_number = 0;
     var row = [];
 
     input = document.getElementById('search').value;
@@ -41,15 +43,16 @@ function searchTag() {
         row[row_id].style.display = 'none';
 		if (cell.textContent.indexOf(input) > -1) {
 			row[row_id].style.display = '';
+			row_number++;
         }
     }
-
+    setNumberRow(row_number);
     pagination();
 
 }
 
 function searchTagFile() {
-	var input, table, row_id, q_id, tag, resolved, allTag;
+	var input, table, row_id, q_id, tag, resolved, allTag, row_number = 0;
 	var row = [];
 	var query = [];
 	var nString;
@@ -90,12 +93,13 @@ function searchTagFile() {
 
         if (eval(resolved)) {
             row[row_id].style.display = '';
+            row_number++;
         } else {
             row[row_id].style.display = 'none';
         }
 
 	}
-
+    setNumberRow(row_number);
 	pagination();
 
 }

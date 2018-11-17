@@ -64,6 +64,11 @@ $controller = new Index($_SESSION['email']);
                 </div>
                 <ul class="right hide-on-med-and-down">
                     <li>
+                        <a href="#" class="waves-effect waves-block waves-light settings-button">
+                            <i class="material-icons">sync<small id="row-counter" class="notification-badge pink accent-2">0</small></i>
+                        </a>
+                    </li>
+                    <li>
                         <a href="#" class="waves-effect waves-block waves-light settings-button" data-activates="settings-dropdown">
                             <i class="material-icons">settings</i>
                         </a>

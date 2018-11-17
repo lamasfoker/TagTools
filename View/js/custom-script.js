@@ -5,6 +5,7 @@ $(document).ready(function(){
 
   hideTable('tag-table');
   pagination();
+  setNumberRow($('#file-table > tbody > tr').length);
 
   $('#change-table-btn').click(changeTable);
   $('#tag-table > tbody > tr').click(searchThisTag);
@@ -23,6 +24,7 @@ function changeTable() {
       el.text('photo');
       hideTable('file-table');
       showTable('tag-table');
+      setNumberRow($('#tag-table > tbody > tr').length);
       search.off('input', searchFile);
       search.on('input', searchTag);
       searchTag();
@@ -31,6 +33,7 @@ function changeTable() {
       el.text('local_offer');
       hideTable('tag-table');
       showTable('file-table');
+      setNumberRow($('#file-table > tbody > tr').length);
       search.off('input', searchTag);
       search.on('input', searchFile);
       searchFile();
@@ -104,4 +107,8 @@ function showTable(table) {
 
 function hideTable(table) {
   $('#'+table+'-container').hide();
+}
+
+function setNumberRow(row_number) {
+    $('#row-counter').html(row_number);
 }
