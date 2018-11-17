@@ -9,7 +9,7 @@ $(document).ready(function(){
 
   $('#change-table-btn').click(changeTable);
   $('#tag-table > tbody > tr').click(searchThisTag);
-  $('#file-table > tbody > tr.img').click(addSelectedItem);
+  $('#file-table > tbody > tr.img > td').not('.preview').click(addSelectedItem);
   $('#search').on('input', searchFile);
   $('#xml-download-btn').click(downloadXml);
   $('#file-download-btn').click(downloadFile);
@@ -42,7 +42,7 @@ function changeTable() {
 
 function addSelectedItem() {
     let table = $('#selected-table'),
-        fileName = $(this).children(':nth-child(3)').text(),
+        fileName = $(this).parent().children(':nth-child(3)').text(),
         cross = '<i class="small material-icons cross">clear</i>',
         fileId = $(this).children(':nth-child(1)').text(),
         fileTag = $(this).children(':nth-child(4)').text();

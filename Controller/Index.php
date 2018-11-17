@@ -33,6 +33,7 @@ class Index
                 <th>Nome</th>
                 <th>Path</th>
                 <th>Tag</th>
+                <th>Preview</th>
             </tr></thead><tbody>";
 
             $return = $this->_file->selectUserData();
@@ -45,11 +46,12 @@ class Index
                     echo ' class="img"';
                 }
 
-                echo '><td>' . $row['id'].'</td>
+                echo '><td>'.$row['id'].'</td>
                     <td>'.$row['type'].'</td>
                     <td>'.$row['name'].'</td>
                     <td>'.$row['path'].'</td>
-                    <td>'.$row['tag'].'</td></tr>';
+                    <td>'.$row['tag'].'</td>
+                    <td class="preview"><a href="https://drive.google.com/file/d/'.$row['id'].'/view" target="_blank"><i class="black-text material-icons">visibility</i></a></td></tr>';
             }
 
             echo "</tbody></table>";
