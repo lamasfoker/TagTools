@@ -99,6 +99,10 @@ $controller = new Index($_SESSION['email']);
                         <a href="#modal_newDB" class="grey-text text-darken-1 modal-trigger">
                             <i class="material-icons">cloud_upload</i> Crea nuovo Database</a>
                     </li>
+                    <li>
+                        <a href="/data/macro.zip" class="grey-text text-darken-1 modal-trigger" download="macro.zip">
+                            <i class="material-icons">archive</i> Download Macro</a>
+                    </li>
                 </ul>
                 <!-- profile-dropdown -->
                 <ul id="profile-dropdown" class="dropdown-content">
