@@ -6,3 +6,6 @@ vendor/View/css/materialize.css.new
 vendor/View/css/style.css.backup
 vendor/View/js/materialize.js.new
 vendor/View/js/plugins.js.backup
+.idea/*
+data/gmoscardini@webgriffe.com.csv
+sample.png
